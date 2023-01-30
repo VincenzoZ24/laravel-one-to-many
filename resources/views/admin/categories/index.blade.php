@@ -26,7 +26,7 @@
                         <td>{{ $category->slug }}</td>
                         <td>{{ $category->name }}</td>
 
-                        <td>
+                        <td class="d-flex mr-1">
                             <a href="{{ route('admin.categories.show', ['category' => $category]) }}" class="btn btn-primary">Visita</a>
                             <a href="{{ route('admin.categories.edit', ['category' => $category]) }}" class="btn btn-warning">Edita</a>
                             <form action="{{ route('admin.categories.destroy', ['category' => $category]) }}" method="category">

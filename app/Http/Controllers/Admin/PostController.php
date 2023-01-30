@@ -33,7 +33,7 @@ class PostController extends Controller
     {
         $posts = Post::paginate(5);
 
-        // $posts->dd();
+        
 
         return view('admin.posts.index', [
             'posts' => $posts,
@@ -62,11 +62,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // validation
-        // $this->validations['slug'][] = 'unique:posts';
-        // $request->validate($this->validations);
-
-        // dd($request->all());
+      
 
         $request->validate([
             'title'         => 'required|string|max:100',
@@ -93,7 +89,7 @@ class PostController extends Controller
         $post->excerpt       = $data['excerpt'];
         $post->save();
 
-        // ridirezionare (e non ritornare una view)
+        
         return redirect()->route('admin.posts.show', ['post' => $post]);
     }
 
@@ -128,10 +124,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        // validation
-        // $this->validations['slug'][] = Rule::unique('posts')->ignore($post);
-        // $request->validate($this->validations);
-
+        
         $request->validate([
             'slug'      => [
                 'required',
@@ -160,7 +153,7 @@ class PostController extends Controller
         $post->excerpt  = $data['excerpt'];
         $post->update();
 
-        // ridirezionare (e non ritornare una view)
+        
         return redirect()->route('admin.posts.show', ['post' => $post]);
     }
 
